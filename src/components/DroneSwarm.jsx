@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './DroneSwarm.css';
-import { eventBus } from '../../eventBus';
+import { eventBus } from 'shared/eventBus';
 
 export default function DroneSwarm() {
   const [formation, setFormation] = useState('grid');
