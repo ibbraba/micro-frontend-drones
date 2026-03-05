@@ -1,0 +1,48 @@
+.drone-swarm {
+  background: #050505;
+  color: #aaa;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  padding: 12px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.drone-header { display: flex; justify-content: space-between; color: #8b5cf6; font-size: 0.8rem; }
+.drone-grid {
+  --drone-size: clamp(10px, 1.1vw, 16px);
+  display: grid;
+  grid-template-columns: repeat(8, var(--drone-size));
+  grid-template-rows: repeat(6, var(--drone-size));
+  gap: 3px;
+  flex: 0 0 auto;
+  min-height: 0;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.drone {
+  width: 100%;
+  height: 100%;
+  max-width: var(--drone-size);
+  max-height: var(--drone-size);
+  margin: auto;
+  border-radius: 50%;
+  transition: background 0.6s ease, box-shadow 0.6s ease;
+}
+.drone.active  { animation: flicker 2s infinite; }
+.drone.inactive { background: #111 !important; }
+.formation-buttons { display: flex; flex-wrap: wrap; gap: 4px; }
+.formation-btn {
+  padding: 3px 8px; background: transparent; border: 1px solid;
+  font-family: 'Courier New', monospace; font-size: 0.65rem; cursor: pointer;
+  transition: all 0.2s;
+}
+@keyframes flicker { 0%,100% { opacity:1 } 92% { opacity:0.9 } 95% { opacity:0.6 } }
