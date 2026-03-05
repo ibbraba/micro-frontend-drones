@@ -2,6 +2,13 @@ import React from 'react';
 import './DroneSwarm.css';
 
 export default function DroneSwarm() {
+    const statusClasses = {
+        heart: 'heart',
+        skull: 'skull',
+        X: 'X',
+        chaos: 'chaos',
+        off: 'off'
+    };
   return (
     <div className="drone-swarm">
       <div className="drone-header">
@@ -10,10 +17,54 @@ export default function DroneSwarm() {
       </div>
 
       <div className="drone-grid">
-        <div className="drone active" />
-        <div className="drone active" />
-        <div className="drone inactive" />
-        <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
+          <div className="drone active" />
       </div>
 
       <div className="formation-buttons">
