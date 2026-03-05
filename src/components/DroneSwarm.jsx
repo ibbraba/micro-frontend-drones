@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './DroneSwarm.css';
+import { eventBus } from '../../eventBus;';
 
 export default function DroneSwarm() {
   const statusClasses = {
@@ -17,7 +18,7 @@ export default function DroneSwarm() {
     
     //Commandes écoutées
 
-    /* eventBus.on('hacker:command', (command) => {
+     eventBus.on('hacker:command', (command) => {
       console.log('Received hacker:command', command);
       if (command === 'storm') {
         setChaosFormation();
@@ -33,47 +34,47 @@ export default function DroneSwarm() {
         setGridFormation();
       }
     });
-    */
+    
     return () => {
       console.log('DroneSwarm unmounted');
-      //eventBus.off('hacker:command');S
+      eventBus.off('hacker:command');
     };
   }, []);
 
 
   function setGridFormation() {
     console.log('Setting grid formation');
-    //    eventBus.emit('drone:formation', 'grid');
+    eventBus.emit('drone:formation', 'grid');
     setFormation('grid');
   }
 
   function setSkullFormation() {
     console.log('Setting skull formation');
-    //    eventBus.emit('drone:formation', 'skull');
+    eventBus.emit('drone:formation', 'skull');
     setFormation('skull');
   }
 
   function setHeartFormation() {
     console.log('Setting heart formation');
-    //    eventBus.emit('drone:formation', 'heart');
+    eventBus.emit('drone:formation', 'heart');
     setFormation('heart');
   }
 
   function setXFormation() {
     console.log('Setting X formation');
-    //    eventBus.emit('drone:formation', 'X');
+    eventBus.emit('drone:formation', 'X');
     setFormation('X');
   }
 
   function setChaosFormation() {
     console.log('Setting chaos formation');
-    //    eventBus.emit('drone:formation', 'chaos');
+    eventBus.emit('drone:formation', 'chaos');
     setFormation('chaos');
   }
 
   function setOffFormation() {
     console.log('Setting off formation');
-    //    eventBus.emit('drone:formation', 'off');
+    eventBus.emit('drone:formation', 'off');
     setFormation('off');
   }
 
@@ -144,9 +145,7 @@ export default function DroneSwarm() {
         <button className="formation-btn" onClick={() => setOffFormation()} >off</button>
       </div>
 
-      <div style={{ fontSize: '0.65rem', color: '#4a5568' }}>
-        TODO: listen hacker:command + power:outage, emit drone:formation.
-      </div>
+      
     </div>
   );
 }
