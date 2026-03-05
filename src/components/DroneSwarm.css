@@ -50,7 +50,7 @@
 .drone.inactive { background: #111 !important; }
 .formation-buttons { display: flex; flex-wrap: wrap; gap: 4px; }
 .formation-btn {
-  padding: 3px 8px; background: transparent; border: 1px solid;
+  padding: 3px 8px; background: transparent; border: 1px solid white; color: white;
   font-family: 'Courier New', monospace; font-size: 0.65rem; cursor: pointer;
   transition: all 0.2s;
 }
