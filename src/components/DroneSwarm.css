@@ -17,12 +17,16 @@
   margin: 0 auto;
 }
 .drone {
+  --tx: 0px;
+  --ty: 0px;
+  --tr: 0deg;
   width: var(--drone-size);
   height: var(--drone-size);
   background-color: var(--drone-color, white);
   border-radius: 50%;
   box-shadow: 0 0 6px var(--drone-color, white);
-  transition: all 0.8s ease-in-out; /* Consigne : all + 0.8s */
+  transition: all 0.8s ease-in-out;
+  transform: translate(var(--tx, 0), var(--ty, 0)) rotate(var(--tr, 0));
   opacity: 0.15; /* Les drones "éteints" pour les formes */
 }
 
@@ -60,9 +64,10 @@
 }
 
 /* Formation CHAOS */
-.drone.chaos { --drone-color: red; opacity: 1; }
-.drone.chaos:nth-child(odd) { transform: translate(5px, -5px); }
-.drone.chaos:nth-child(even) { transform: translate(-5px, 5px); }
+.drone.chaos { --drone-color: #FF0000;
+  opacity: 1;
+  box-shadow: 0 0 8px var(--drone-color);
+}
 
 /* --- TES ANIMATIONS D'ORIGINE --- */
 .drone.off { animation: powerOutage 2s forwards ease-in-out; }

@@ -4,6 +4,7 @@ import { eventBus } from '../../eventBus';
 
 export default function DroneSwarm() {
   const [formation, setFormation] = useState('grid');
+  const [chaosOffsets, setChaosOffsets] = useState([]);
 
   const commandMap = {
     storm: 'chaos',
@@ -16,6 +17,14 @@ export default function DroneSwarm() {
 
   // Fonction unique pour changer de formation (Factorisation)
   const changeFormation = (newFormation) => {
+    if (newFormation === 'chaos') {
+      const newOffsets = Array.from({ length: 48 }, () => ({
+        x: Math.floor(Math.random() * 40 - 20),
+        y: Math.floor(Math.random() * 40 - 20),
+        r: Math.floor(Math.random() * 90 - 45) // Rotation
+      }));
+      setChaosOffsets(newOffsets);
+    }
     console.log(`Setting ${newFormation} formation`);
     eventBus.emit('drone:formation', newFormation);
     setFormation(newFormation);
@@ -45,9 +54,18 @@ export default function DroneSwarm() {
         </div>
 
         <div className="drone-grid">
-          {Array.from({ length: 48 }).map((_, i) => (
-              <div key={i} className={`drone ${formation}`} />
-          ))}
+            {Array.from({ length: 48 }).map((_, i) => (
+                <div
+                    key={i}
+                    className={`drone ${formation}`}
+                    style={{
+                      // On injecte les variables CSS seulement si on est en mode chaos
+                      '--tx': formation === 'chaos' ? `${chaosOffsets[i]?.x}px` : '0px',
+                      '--ty': formation === 'chaos' ? `${chaosOffsets[i]?.y}px` : '0px',
+                      '--tr': formation === 'chaos' ? `${chaosOffsets[i]?.r}deg` : '0px'
+                    }}
+                />
+            ))}
         </div>
 
         <div className="formation-buttons">
